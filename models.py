@@ -12,4 +12,4 @@ class About(db.Model):
     about_degree=db.Column(db.String(100))
     about_email=db.Column(db.String(100))
     about_freelance=db.Column(db.String(100))
-    about_content=db.Column(db.String(200))
+    about_content=db.Column(db.Text())

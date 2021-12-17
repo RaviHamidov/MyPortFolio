@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-# from flask_migrate import  Migrate  
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 
@@ -10,12 +10,12 @@ db=SQLAlchemy(app)
 
 # db.session.commit()
 from models import *
-# migrate = Migrate(app, db)
+migrate = Migrate(app, db)
 
 from app.routes import *
 
 from admin.routes import *
 
 if __name__=='__main__':
-    db.create_all()
+    # db.create_all()
     app.run(debug=True)  

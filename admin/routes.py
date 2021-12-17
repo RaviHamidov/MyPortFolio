@@ -41,9 +41,11 @@ def blog():
             about_freelance = about_freelance,
             about_content = about_content
         )
+
         db.session.add(abt)
         db.session.commit()
         return redirect("/")
+        
     return render_template("admin/about.html", about=about)
 
 @app.route("/admin/about/delete/<int:id>")
