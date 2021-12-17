@@ -1,0 +1,75 @@
+{% extends "admin/base.html" %}{% block content %}
+<h2>About</h2>
+<form action="/admin/about" method="POST" enctype="multipart/form-data">
+    <div class="mt-3">
+        <input type="file" class="form-control" placeholder="Image..." name="about_img">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="Title..." name="about_title">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="Birthday..." name="about_birthday">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="Website...." name="about_website">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="Phone..." name="about_phone">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="About..." name="about_city">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="Age..." name="about_age">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="Degree..." name="about_degree">
+    </div>
+    <div class="mt-3">
+        <input type="email" class="form-control" placeholder="Email..." name="about_email">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="Freelance..." name="about_freelance">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="Content..." name="about_content">
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+<hr>
+<table class="table table-active">
+    <thead>
+        <tr>
+            <th scope="col">about_title</th>
+            <th scope="col">about_birthday</th>
+            <th scope="col">about_website</th>
+            <th scope="col">about_phone</th>
+            <th scope="col">about_city</th>
+            <th scope="col">about_age</th>
+            <th scope="col">about_degree</th>
+            <th scope="col">about_email</th>
+            <th scope="col">about_freelance</th>
+            <th scope="col">about_content</th>
+            <th scope="col">Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for abt in about %}
+        <tr>
+            <td>{{abt.id}}</td>
+            <td>{{abt.about_title}}</td>
+            <td>{{abt.about_birthday}}</td>
+            <td>{{abt.about_website}}</td>
+            <td>{{abt.about_phone}}</td>
+            <td>{{abt.about_city}}</td>
+            <td>{{abt.about_degree}}</td>
+            <td>{{abt.about_email}}</td>
+            <td>{{abt.about_freelance}}</td>
+            <td>{{abt.about_content}}</td>
+            <th><a href="/admin/about/delete/{{abt.id}}">Sil</a></th>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
