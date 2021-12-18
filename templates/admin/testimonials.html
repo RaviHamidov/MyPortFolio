@@ -1,0 +1,53 @@
+{% extends "admin/base.html" %}{% block content %}
+<h2>Testimonials</h2>
+<form action="/admin/testimonials" method="POST" enctype="multipart/form-data">
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="content..." name="testimoials_content">
+    </div>
+    <div class="mt-3">
+        <input type="file" class="form-control" placeholder="image..." name="testimonials_img">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="name..." name="testimoials_name">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="profession..." name="testimoials_profession">
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+<hr>
+<table class="table table-active">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">testimoials_content</th>
+            <th scope="col">testimonials_img</th>
+            <th scope="col">testimoials_name</th>
+            <th scope="col">testimoials_profession</th>
+
+            <th scope="col">delete</th>
+            <th scope="col">update</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for tst in testimonials %}
+        <tr>
+            <td>{{abt.id}}</td>
+            <td>{{abt.testimoials_content}}</td>
+            <td>{{abt.testimonials_img}}</td>
+            <td>{{abt.testimoials_name}}</td>
+            <td>{{abt.testimoials_profession}}</td>
+
+            <th><a href="/admin/about/delete/{{abt.id}}">delete</a></th>
+            <th><a href="/admin/about/edit/{{abt.id}}">update</a></th>
+
+        </tr>
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

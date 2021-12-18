@@ -13,3 +13,10 @@ class About(db.Model):
     about_email=db.Column(db.String(100))
     about_freelance=db.Column(db.String(100))
     about_content=db.Column(db.Text())
+
+class Testimonials(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    testimonials_content=db.Column(db.String(100))
+    testimonials_img=db.Column(db.String(100))
+    testimonials_name=db.Column(db.String(100))
+    testimonials_profession=db.Column(db.String(100))

@@ -40,7 +40,7 @@
 <table class="table table-active">
     <thead>
         <tr>
-            <th scope="col">about_title</th>
+            <th scope="col">id</th>
             <th scope="col">about_title</th>
             <th scope="col">about_birthday</th>
             <th scope="col">about_website</th>
@@ -51,10 +51,14 @@
             <th scope="col">about_email</th>
             <th scope="col">about_freelance</th>
             <th scope="col">about_content</th>
-            <th scope="col">Sil</th>
+
+            <th scope="col">delete</th>
+            <th scope="col">update</th>
         </tr>
     </thead>
+
     <tbody>
+
         {% for abt in about %}
         <tr>
             <td>{{abt.id}}</td>
@@ -69,9 +73,13 @@
             <td>{{abt.about_freelance}}</td>
             <td>{{abt.about_content}}</td>
             <th><a href="/admin/about/delete/{{abt.id}}">Sil</a></th>
+            <th><a href="/admin/about/edit/{{abt.id}}">Edit</a></th>
+
         </tr>
         {% endfor %}
+
     </tbody>
+
 </table>
 
 {% endblock %}

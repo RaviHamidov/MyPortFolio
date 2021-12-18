@@ -6,8 +6,10 @@ from run import app,db
 from flask import render_template,request,url_for
 import os
 
+# about
+
 @app.route("/admin/about",methods=["GET","POST"])
-def blog():
+def about():
     from models import About
     import os
     from run import db
@@ -55,3 +57,80 @@ def admin_about_delete(id):
         db.session.delete(about)
         db.session.commit()
         return redirect('/admin/about')
+
+
+@app.route("/admin/about/edit/<int:id>",methods=["GET","POST"])
+def about_edit(id):
+    from models import About
+    from run import db
+    newAbout = About.query.filter_by(id=id).first()
+    if request.method=="POST":
+        about = About.query.filter_by(id=id).first()
+        about.about_title = request.form["about_title"]
+        about.about_birthday = request.form["about_birthday"]
+        about.about_website = request.form["about_website"]
+        about.about_phone = request.form["about_phone"]
+        about.about_city = request.form["about_city"]
+        about.about_age = request.form["about_age"]
+        about.about_degree = request.form["about_degree"]
+        about.about_email = request.form["about_email"]
+        db.session.commit()
+        return redirect("/")
+    return render_template("/admin/update_about.html", newAbout=newAbout)
+
+
+
+
+
+# testimonials
+
+@app.route("/admin/testimonials",methods=["GET","POST"])
+def testimonials():
+    from models import Testimonials
+    import os
+    from run import db
+    from werkzeug.utils import secure_filename
+    testimonials = Testimonials.query.all()
+    if request.method=="POST":
+        testimonials_content = request.form["testimonials_content"]
+        file = request.files["testimonials_img"]
+        filename=file.filename
+        file.save(os.path.join('static/assets/uploads/',filename))
+        testimonials_name = request.form["testimonials_name"]
+        testimonials_profession = request.form["testimonials_profession"]
+
+        tst = Testimonials(
+            testimonials_content = testimonials_content,
+            testimonials_img = filename,
+            testimonials_name = testimonials_name,
+            testimonials_profession = testimonials_profession
+        )
+
+        db.session.add(tst)
+        db.session.commit()
+        return redirect("/")
+        
+    return render_template("admin/testimonials.html", testimonials=testimonials)
+
+@app.route("/admin/testimonials/delete/<int:id>")
+def admin_testimonials_delete(id):
+        from models import Testimonials
+        testimonials=Testimonials.query.filter_by(id=id).first()
+        db.session.delete(testimonials)
+        db.session.commit()
+        return redirect('/admin/testimonials')
+
+
+@app.route("/admin/testimonials/edit/<int:id>",methods=["GET","POST"])
+def testimonials_edit(id):
+    from models import Testimonials
+    from run import db
+    newTestimonials = Testimonials.query.filter_by(id=id).first()
+    if request.method=="POST":
+        testimonials = Testimonials.query.filter_by(id=id).first()
+        testimonials.testimonials_content = request.form["testimonials_content"]
+        testimonials.testimonials_name = request.form["testimonials_name"]
+        testimonials.testimonials_profession = request.form["testimonials_profession"]
+        db.session.commit()
+        return redirect("/")
+    return render_template("/admin/update_testimonials.html", newTestimonials=newTestimonials)
