@@ -54,7 +54,7 @@
           <li class="active"><a href="#header">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#resume">Resume</a></li>
-          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">portfolio</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -275,11 +275,11 @@
         {% for tst in testimonials %}
         <div class="testimonial-item">
           <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i> {{ }} <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            <i class="bx bxs-quote-alt-left quote-icon-left"></i> {{tst.testimonials_content}} <i class="bx bxs-quote-alt-right quote-icon-right"></i>
           </p>
-          <img src="static/assets/uploads/{{abt.a_img}}" class="testimonial-img" alt="">
-          <h3> {{ }} </h3>
-          <h4> {{ }} </h4>
+          <img src="static/assets/uploads/{{tst.testimonials_img}}" class="testimonial-img" alt="">
+          <h3> {{tst.testimonials_name}} </h3>
+          <h4> {{tst.testimonials_profession}} </h4>
         </div>
         {% endfor %}
 
@@ -290,68 +290,31 @@
   </section><!-- End About Section -->
 
 
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
+  <!-- ======= PortFolio Section ======= -->
+  <section id="portfolio" class="portfolio">
     <div class="container">
 
       <div class="section-title">
-        <h2>Services</h2>
-        <p>My Services</p>
+        <h2>Portfolio</h2>
+        <p>My Portfolio</p>
       </div>
 
       <div class="row">
+
+        {% for prt in portfolio %}
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
           <div class="icon-box">
-            <div class="icon"><i class="bx bxl-dribbble"></i></div>
-            <h4><a href="">Lorem Ipsum</a></h4>
-            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            <div class="icon"><i class="{{prt.portfolio_content}}"></i></div>
+            <h4><a href="#">{{prt.portfolio_content}}</a></h4>
+            <p>{{prt.portfolio_content}}</p>
           </div>
         </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4><a href="">Sed ut perspiciatis</a></h4>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-tachometer"></i></div>
-            <h4><a href="">Magni Dolores</a></h4>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-world"></i></div>
-            <h4><a href="">Nemo Enim</a></h4>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-slideshow"></i></div>
-            <h4><a href="">Dele cardo</a></h4>
-            <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-arch"></i></div>
-            <h4><a href="">Divera don</a></h4>
-            <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
-          </div>
-        </div>
+        {% endfor %}
 
       </div>
 
     </div>
-  </section><!-- End Services Section -->
+  </section><!-- End portfolio Section -->
 
 
   <!-- ======= Contact Section ======= -->
