@@ -134,3 +134,57 @@ def testimonials_edit(id):
         db.session.commit()
         return redirect("/")
     return render_template("/admin/update_testimonials.html", newTestimonials=newTestimonials)
+
+
+# portfolio
+
+@app.route("/admin/portfolio",methods=["GET","POST"])
+def portfolio():
+    from models import Portfolio
+    import os
+    from run import db
+    from werkzeug.utils import secure_filename
+    portfolio = Portfolio.query.all()
+    if request.method=="POST":
+        portfolio_content = request.form["portfolio_content"]
+        file = request.files["portfolio_img"]
+        filename=file.filename
+        file.save(os.path.join('static/assets/uploads/',filename))
+        portfolio_name = request.form["portfolio_name"]
+        portfolio_profession = request.form["portfolio_profession"]
+
+        tst = Portfolio(
+            portfolio_content = portfolio_content,
+            portfolio_img = filename,
+            portfolio_name = portfolio_name,
+            testimonials_profession = portfolio_profession
+        )
+
+        db.session.add(tst)
+        db.session.commit()
+        return redirect("/")
+        
+    return render_template("admin/portfolio.html", portfolio=portfolio)
+
+@app.route("/admin/portfolio/delete/<int:id>")
+def admin_portfolio_delete(id):
+        from models import Portfolio
+        portfolio=Portfolio.query.filter_by(id=id).first()
+        db.session.delete(portfolio)
+        db.session.commit()
+        return redirect('/admin/portfolio')
+
+
+@app.route("/admin/portfolio/edit/<int:id>",methods=["GET","POST"])
+def portfolio_edit(id):
+    from models import Portfolio
+    from run import db
+    newPortfolio = Portfolio.query.filter_by(id=id).first()
+    if request.method=="POST":
+        portfolio = Portfolio.query.filter_by(id=id).first()
+        portfolio.portfolio_icon = request.form["portfolio_icon"]
+        portfolio.portfolio_title = request.form["portfolio_title"]
+        portfolio.portfolio_content = request.form["portfolio_content"]
+        db.session.commit()
+        return redirect("/")
+    return render_template("/admin/update_portfolio.html", newPortfolio=newPortfolio)

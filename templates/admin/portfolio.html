@@ -4,16 +4,13 @@
 
 <form action="/admin/portfolio" method="POST" enctype="multipart/form-data">
     <div class="mt-3">
+        <input type="text" class="form-control" placeholder="content..." name="portfolio_icon">
+    </div>
+    <div class="mt-3">
+        <input type="file" class="form-control" placeholder="title..." name="portfolio_title">
+    </div>
+    <div class="mt-3">
         <input type="text" class="form-control" placeholder="content..." name="portfolio_content">
-    </div>
-    <div class="mt-3">
-        <input type="file" class="form-control" placeholder="image..." name="portfolio_img">
-    </div>
-    <div class="mt-3">
-        <input type="text" class="form-control" placeholder="name..." name="portfolio_name">
-    </div>
-    <div class="mt-3">
-        <input type="text" class="form-control" placeholder="profession..." name="portfolio_profession">
     </div>
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
 </form>
@@ -25,10 +22,9 @@
     <thead>
         <tr>
             <th scope="col">id</th>
+            <th scope="col">portfolio_icon</th>
+            <th scope="col">portfolio_title</th>
             <th scope="col">portfolio_content</th>
-            <th scope="col">portfolio_img</th>
-            <th scope="col">portfolio_name</th>
-            <th scope="col">portfolio_profession</th>
 
             <th scope="col">delete</th>
             <th scope="col">update</th>
@@ -36,16 +32,15 @@
     </thead>
 
     <tbody>
-        {% for tst in portfolio %}
+        {% for prt in portfolio %}
         <tr>
-            <td>{{tst.id}}</td>
-            <td>{{tst.portfolio_content}}</td>
-            <td>{{tst.portfolio_img}}</td>
-            <td>{{tst.portfolio_name}}</td>
-            <td>{{tst.portfolio_profession}}</td>
+            <td>{{prt.id}}</td>
+            <td>{{prt.portfolio_icon}}</td>
+            <td>{{prt.portfolio_title}}</td>
+            <td>{{prt.portfolio_content}}</td>
 
-            <th><a href="/admin/portfolio/delete/{{tst.id}}">delete</a></th>
-            <th><a href="/admin/portfolio/edit/{{tst.id}}">update</a></th>
+            <th><a href="/admin/portfolio/delete/{{prt.id}}">delete</a></th>
+            <th><a href="/admin/portfolio/edit/{{prt.id}}">update</a></th>
         </tr>
         {% endfor %}
     </tbody>

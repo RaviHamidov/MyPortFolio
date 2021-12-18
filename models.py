@@ -20,3 +20,9 @@ class Testimonials(db.Model):
     testimonials_img=db.Column(db.String(100))
     testimonials_name=db.Column(db.String(100))
     testimonials_profession=db.Column(db.String(100))
+
+class Portfolio(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    portfolio_icon=db.Column(db.String(100))
+    portfolio_title=db.Column(db.String(100))
+    portfolio_content=db.Column(db.String(100))
