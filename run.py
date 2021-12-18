@@ -9,8 +9,10 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 db=SQLAlchemy(app)
 
 # db.session.commit()
-from models import *
+
 migrate = Migrate(app, db)
+
+from models import *
 
 from app.routes import *
 
