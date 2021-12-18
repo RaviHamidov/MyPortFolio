@@ -29,7 +29,7 @@ def blog():
         about_content = request.form["about_content"]
 
         abt = About(
-            about_img = file.save(os.path.join('static/assets/uploads/',filename)),
+            about_img = filename,
             about_title = about_title,
             about_birthday = about_birthday,
             about_website = about_website,
