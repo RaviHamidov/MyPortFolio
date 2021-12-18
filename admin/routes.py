@@ -146,21 +146,17 @@ def portfolio():
     from werkzeug.utils import secure_filename
     portfolio = Portfolio.query.all()
     if request.method=="POST":
+        portfolio_icon = request.form["portfolio_icon"]
+        portfolio_title = request.form["portfolio_title"]
         portfolio_content = request.form["portfolio_content"]
-        file = request.files["portfolio_img"]
-        filename=file.filename
-        file.save(os.path.join('static/assets/uploads/',filename))
-        portfolio_name = request.form["portfolio_name"]
-        portfolio_profession = request.form["portfolio_profession"]
 
-        tst = Portfolio(
-            portfolio_content = portfolio_content,
-            portfolio_img = filename,
-            portfolio_name = portfolio_name,
-            testimonials_profession = portfolio_profession
+        prt = Portfolio(
+            portfolio_icon = portfolio_icon,
+            portfolio_title = portfolio_title,
+            portfolio_content = portfolio_content
         )
 
-        db.session.add(tst)
+        db.session.add(prt)
         db.session.commit()
         return redirect("/")
         

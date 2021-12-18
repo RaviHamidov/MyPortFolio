@@ -9,5 +9,8 @@ def index():
 
     from models import Testimonials
     testimonials = Testimonials.query.all()
+
+    from models import Portfolio
+    portfolio = Portfolio.query.all()
     
-    return render_template('app/index.html',about=about,testimonials=testimonials)
+    return render_template('app/index.html',about=about,testimonials=testimonials,portfolio=portfolio)
