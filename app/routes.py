@@ -3,6 +3,11 @@ from run import app
 
 @app.route('/')
 def index():
+
     from models import About
     about = About.query.all()
-    return render_template('app/index.html',about=about)
+
+    from models import Testimonials
+    testimonials = Testimonials.query.all()
+    
+    return render_template('app/index.html',about=about,testimonials=testimonials)
