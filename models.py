@@ -39,11 +39,14 @@ class Education(db.Model):
     education_name=db.Column(db.String(100))
     education_about=db.Column(db.String(100))
 
-class Education(db.Model):
+# Interests
+
+class Interests(db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    education_date=db.Column(db.String(100))
-    education_name=db.Column(db.String(100))
-    education_about=db.Column(db.String(100))
+    interests_icon_name=db.Column(db.String(100))
+    education_title=db.Column(db.String(100))
+
+# Testimonials
 
 class Testimonials(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -52,18 +55,22 @@ class Testimonials(db.Model):
     testimonials_name=db.Column(db.String(100))
     testimonials_profession=db.Column(db.String(100))
 
+# PortFolio
+
 class Portfolio(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     portfolio_icon=db.Column(db.String(100))
     portfolio_title=db.Column(db.String(100))
     portfolio_content=db.Column(db.String(100))
 
-# Login
-class Login(UserMixin ,db.Model):
+# Blog
+
+class Blog(db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    admin_username = db.Column(db.String(50))
-    admin_password = db.Column(db.String(50))
-    log_bool = db.Column(db.Boolean)
+    blog_icon_name=db.Column(db.String(100))
+    blog_title_link=db.Column(db.String(100))
+    blog_title_name=db.Column(db.String(100))
+    blog_content=db.Column(db.String(100))
 
 # Contact 
 
@@ -73,3 +80,11 @@ class Contact(db.Model):
     contact_email = db.Column(db.String(100))
     contact_subject = db.Column(db.String(100))
     contact_message = db.Column(db.Text)
+
+# Login
+
+class Login(UserMixin ,db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    admin_username = db.Column(db.String(50))
+    admin_password = db.Column(db.String(50))
+    log_bool = db.Column(db.Boolean)
