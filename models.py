@@ -70,6 +70,7 @@ class Testimonials(db.Model):
 class Portfolio(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     portfolio_icon=db.Column(db.String(100))
+    portfolio_link=db.Column(db.String(100))
     portfolio_title=db.Column(db.String(100))
     portfolio_content=db.Column(db.String(100))
 

@@ -200,8 +200,8 @@
         {% for int in interests %}
         <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
           <div class="icon-box">
-            <i class="{{}}" style="color: #4ceb95;"></i>
-            <h3>{{}}</h3>
+            <i class="{{int.interests_icon_name}}" style="color: #4ceb95;"></i>
+            <h3>{{int.interests_title}}</h3>
           </div>
         </div>
         {% endfor %}
@@ -253,7 +253,7 @@
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
           <div class="icon-box">
             <div class="icon"><i class="{{prt.portfolio_icon}}"></i></div>
-            <h4><a href="{{}}">{{prt.portfolio_title}}</a></h4>
+            <h4><a href="{{prt.portfolio_link}}">{{prt.portfolio_title}}</a></h4>
             <p>{{prt.portfolio_content}}</p>
           </div>
         </div>
@@ -278,9 +278,9 @@
         {% for blg in blog %}
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
           <div class="icon-box">
-            <div class="icon"><i class="{{}}"></i></div>
-            <h4><a href="{{}}">{{}}</a></h4>
-            <p>{{}}</p>
+            <div class="icon"><i class="{{blg.blog_icon_name}}"></i></div>
+            <h4><a href="{{blg.blog_title_link}}">{{blg.blog_title_name}}</a></h4>
+            <p>{{blg.blog_content}}</p>
           </div>
         </div>
         {% endfor %}

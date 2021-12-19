@@ -37,16 +37,16 @@
 
     <tbody>
 
-        {% for cnt in blog %}
+        {% for blg in blog %}
         <tr>
-            <td>{{cnt.id}}</td>
-            <td>{{cnt.blog_icon_name}}</td>
-            <td>{{cnt.blog_title_link}}</td>
-            <td>{{cnt.blog_title_name}}</td>
-            <td>{{cnt.blog_content}}</td>
+            <td>{{blg.id}}</td>
+            <td>{{blg.blog_icon_name}}</td>
+            <td>{{blg.blog_title_link}}</td>
+            <td>{{blg.blog_title_name}}</td>
+            <td>{{blg.blog_content}}</td>
             
-            <th><a href="/admin/blog/delete/{{cnt.id}}">Sil</a></th>
-            <th><a href="/admin/blog/edit/{{cnt.id}}">Edit</a></th>
+            <th><a href="/admin/blog/delete/{{blg.id}}">Sil</a></th>
+            <th><a href="/admin/blog/edit/{{blg.id}}">Edit</a></th>
         </tr>
         {% endfor %}
 
