@@ -41,6 +41,48 @@ def admin_logout():
     logout_user()
     return redirect (url_for("about"))
 
+# Admin Contact
+
+@app.route("/admin/contact", methods=["GET","POST"])
+@login_required
+def contact():
+    from models import Contact
+    from run import db
+    import smtplib
+    from flask_mail import Mail, Message
+    from run import mail
+    messages = Contact.query.all()
+    if request.method == "POST":
+        contact_name = request.form["contact_name"]
+        contact_email = request.form["contact_email"]
+        contact_subject = request.form["contact_subject"]
+        contact_message = request.form["contact_message"]
+        cnt = Contact(
+            contact_name = contact_name,
+            contact_email = contact_email,
+            contact_subject = contact_subject,
+            contact_message = contact_message
+        )
+        msg = cnt.contact_message  
+        mygmail = "kharmacodingclub@gmail.com"
+
+        msg = Message(contact_message, sender = contact_email, recipients = [mygmail])
+        mail.send(msg)
+
+        db.session.add(cnt)
+        db.session.commit()
+        return redirect ("/")
+    return render_template("admin/contact.html", messages=messages)
+
+@app.route("/admin/contact/delete/<int:id>")
+@login_required
+def admin_contact_delete(id):
+        from models import Contact
+        messages=Contact.query.filter_by(id=id).first()
+        db.session.delete(messages)
+        db.session.commit()
+        return redirect('/admin/contact')
+
 
 # about
 

@@ -1,4 +1,5 @@
 from flask_login.mixins import UserMixin
+from admin.routes import contact
 from run import db
 
 class About(db.Model):
@@ -34,3 +35,12 @@ class Login(UserMixin ,db.Model):
     admin_username = db.Column(db.String(50))
     admin_password = db.Column(db.String(50))
     log_bool = db.Column(db.Boolean)
+
+# Contact 
+
+class Contact(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    contact_name = db.Column(db.String(50))
+    contact_email = db.Column(db.String(100))
+    contact_subject = db.Column(db.String(100))
+    contact_message = db.Column(db.Text)
