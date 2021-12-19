@@ -11,7 +11,7 @@
   <title>TheHamidov</title>
 
   <!-- Favicons -->
-  <link href="/static/assets/uploads/LogoImage.png" rel="icon">
+  <link href="/static/assets/uploads/portfolio-17.jpg" rel="icon">
 
   <!-- Google Fonts -->
   <link
@@ -19,12 +19,12 @@
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="../../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="../../static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="../../static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="../../static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../../static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="/static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/venobox/venobox.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="/static/assets/css/style.css" rel="stylesheet">
@@ -73,7 +73,7 @@
         <h2>About</h2>
         <p>Learn more about me</p>
       </div>
-      
+
       {% for abt in about %}
       <div class="row">
         <div class="col-lg-4" data-aos="fade-right">
@@ -268,13 +268,14 @@
       <div class="section-title">
         <h2>Testimonials</h2>
       </div>
-      
+
       <div class="owl-carousel testimonials-carousel">
 
         {% for tst in testimonials %}
         <div class="testimonial-item">
           <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i> {{tst.testimonials_content}} <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            <i class="bx bxs-quote-alt-left quote-icon-left"></i> {{tst.testimonials_content}} <i
+              class="bx bxs-quote-alt-right quote-icon-right"></i>
           </p>
           <img src="static/assets/uploads/{{tst.testimonials_img}}" class="testimonial-img" alt="">
           <h3> {{tst.testimonials_name}} </h3>
@@ -368,19 +369,19 @@
       <form action="/admin/contact" method="post" role="form" class="form mt-4">
         <div class="form-row">
           <div class="col-md-6 form-group">
-            <input type="text" name="contact_name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4"
-              data-msg="Please enter at least 4 chars" />
+            <input type="text" name="contact_name" class="form-control" id="name" placeholder="Your Name"
+              data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
             <div class="validate"></div>
           </div>
           <div class="col-md-6 form-group">
-            <input type="email" class="form-control" name="contact_email" id="email" placeholder="Your Email" data-rule="email"
-              data-msg="Please enter a valid email" />
+            <input type="email" class="form-control" name="contact_email" id="email" placeholder="Your Email"
+              data-rule="email" data-msg="Please enter a valid email" />
             <div class="validate"></div>
           </div>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" name="contact_subject" id="subject" placeholder="Subject" data-rule="minlen:4"
-            data-msg="Please enter at least 8 chars of subject" />
+          <input type="text" class="form-control" name="contact_subject" id="subject" placeholder="Subject"
+            data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
           <div class="validate"></div>
         </div>
         <div class="form-group">
