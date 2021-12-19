@@ -116,9 +116,9 @@
         {% for cnt in count %}
         <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
           <div class="count-box">
-            <i class="{{}}"></i>
-            <span data-toggle="counter-up">{{}}</span>
-            <p>{{}}</p>
+            <i class="{{cnt.count_icon_name}}"></i>
+            <span data-toggle="counter-up">{{cnt.count_num}}</span>
+            <p>{{cnt.count_title}}</p>
           </div>
         </div>
         {% endfor %}
@@ -145,9 +145,9 @@
                 {% for tchskl in technicalskills %}
                 <li>
                   <div class="timeline-content">
-                    <h3 class="date">{{}}</h3>
-                    <h1>{{}}</h1>
-                    <p>{{}}</p>
+                    <h3 class="date">{{tchskl.skills_date}}</h3>
+                    <h1>{{skills_name}}</h1>
+                    <p>{{skills_about}}</p>
                   </div>
                 </li>
                 {% endfor %}
