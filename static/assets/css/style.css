@@ -12,7 +12,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #040404 url("") top right no-repeat;
+  background: #040404 url("/static/assets/uploads/portfolio-7.jpg") top right no-repeat;
   background-size: cover;
   left: 0;
   right: 0;
@@ -524,7 +524,7 @@ section .container {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background-color: gray;
+    background-color: rgb(25, 31, 34);
     top: 0px;
   }
   .timeline ul li:nth-child(odd)::before {
@@ -540,7 +540,7 @@ section .container {
     top: -30px;
   }
   .timeline ul li:hover::before {
-    background-color: aqua;
+    background-color: #fff;
   }
 }
 
