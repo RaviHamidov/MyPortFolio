@@ -54,8 +54,8 @@
         <ul>
           <li class="active"><a href="#header">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#resume">Resume</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#blog">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav><!-- .nav-menu -->
@@ -143,6 +143,7 @@
           <div class="container-timeline">
             <div class="timeline">
               <ul>
+
                 {% for tchskl in technicalskills %}
                 <li>
                   <div class="timeline-content">
@@ -152,6 +153,7 @@
                   </div>
                 </li>
                 {% endfor %}
+
               </ul>
             </div>
           </div>
@@ -167,6 +169,7 @@
           <div class="container-timeline">
             <div class="timeline">
               <ul>
+
                 {% for edc in education %}
                 <li>
                   <div class="timeline-content">
@@ -176,6 +179,7 @@
                   </div>
                 </li>
                 {% endfor %}
+
               </ul>
             </div>
           </div>
@@ -262,6 +266,31 @@
     </div>
   </section><!-- End portfolio Section -->
 
+  <!-- ======= Blog Section ======= -->
+  <section id="blog" class="blog">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Blog</h2>
+        <p>My Blog</p>
+      </div>
+
+      <div class="row">
+
+        {% for blg in blog %}
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="icon-box">
+            <div class="icon"><i class="{{prt.portfolio_icon}}"></i></div>
+            <h4><a href="#">{{prt.portfolio_title}}</a></h4>
+            <p>{{prt.portfolio_content}}</p>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+
+    </div>
+  </section><!-- End portfolio Section -->
 
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact">
