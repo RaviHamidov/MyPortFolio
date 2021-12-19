@@ -54,7 +54,7 @@ class Education(db.Model):
 class Interests(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     interests_icon_name=db.Column(db.String(100))
-    education_title=db.Column(db.String(100))
+    interests_title=db.Column(db.String(100))
 
 # About -> Testimonials
 

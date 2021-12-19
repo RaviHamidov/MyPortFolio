@@ -1,0 +1,57 @@
+{% extends "admin/base.html" %}{% block content %}
+
+<h2>blog</h2>
+
+<form action="/admin/blog" method="POST" enctype="multipart/form-data">
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="blog_icon_name..." name="blog_icon_name">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="blog_title_link..." name="blog_title_link">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="blog_title_name..." name="blog_title_name">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="blog_content..." name="blog_content">
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+
+<hr>
+
+<table class="table table-active">
+
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">blog_icon_name</th>
+            <th scope="col">blog_title_link</th>
+            <th scope="col">blog_title_name</th>
+            <th scope="col">blog_content</th>
+
+            <th scope="col">delete</th>
+            <th scope="col">update</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for cnt in blog %}
+        <tr>
+            <td>{{cnt.id}}</td>
+            <td>{{cnt.blog_icon_name}}</td>
+            <td>{{cnt.blog_title_link}}</td>
+            <td>{{cnt.blog_title_name}}</td>
+            <td>{{cnt.blog_content}}</td>
+            
+            <th><a href="/admin/blog/delete/{{cnt.id}}">Sil</a></th>
+            <th><a href="/admin/blog/edit/{{cnt.id}}">Edit</a></th>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
