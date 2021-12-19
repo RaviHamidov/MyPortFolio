@@ -171,9 +171,9 @@
                 {% for edc in education %}
                 <li>
                   <div class="timeline-content">
-                    <h3 class="date">{{}}</h3>
-                    <h1>{{}}</h1>
-                    <p>{{}}</p>
+                    <h3 class="date">{{edc.education_date}}</h3>
+                    <h1>{{edc.education_name}}</h1>
+                    <p>{{edc.education_about}}</p>
                   </div>
                 </li>
                 {% endfor %}
