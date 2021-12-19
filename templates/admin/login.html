@@ -2,21 +2,21 @@
 <html lang="en" dir="ltr">
    <head>
       <meta charset="utf-8">
-      <title>Login Form Design | CodeLab</title>
-      <link rel="stylesheet" href="style.css">
+      <title>Login Form</title>
+      <link rel="stylesheet" href="/static/admin/assets/css/login.css">
    </head>
    <body>
       <div class="wrapper">
          <div class="title">
             Login Form
          </div>
-         <form action="#">
+         <form action="/admin" method="POST">
             <div class="field">
-               <input type="text" required>
-               <label>Email Address</label>
+               <input type="text" name="admin_username" required>
+               <label>UserName</label>
             </div>
             <div class="field">
-               <input type="password" required>
+               <input type="password" name="admin_password" required>
                <label>Password</label>
             </div>
             <div class="content">

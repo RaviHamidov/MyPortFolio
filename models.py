@@ -1,3 +1,4 @@
+from flask_login.mixins import UserMixin
 from run import db
 
 class About(db.Model):
@@ -26,3 +27,10 @@ class Portfolio(db.Model):
     portfolio_icon=db.Column(db.String(100))
     portfolio_title=db.Column(db.String(100))
     portfolio_content=db.Column(db.String(100))
+
+# Login
+class Login(UserMixin ,db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    admin_username = db.Column(db.String(50))
+    admin_password = db.Column(db.String(50))
+    log_bool = db.Column(db.Boolean)

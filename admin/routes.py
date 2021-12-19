@@ -1,14 +1,51 @@
 from re import A
 from werkzeug.utils import redirect
 from run import app,db
-# from flask_login import LoginManager, UserMixin, login_manager, login_user, login_required, logout_user, current_user
-# from run import login_manager
+from flask_login import LoginManager, UserMixin, login_manager, login_user, login_required, logout_user, current_user
+from run import login_manager
 from flask import render_template,request,url_for
 import os
+
+# Login
+@login_manager.user_loader
+def load_user(user_id):
+    from models import Login
+    return Login.query.get(int(user_id))
+
+@app.route("/admin",methods=["GET","POST"])
+def admin_login():
+    from models import Login
+    from run import db
+    login = Login(
+        admin_username = "admin",
+        admin_password = "admin",
+        log_bool = False
+    )
+    db.session.add(login)
+    db.session.commit()
+    
+    if request.method == "POST":
+        if login.admin_username == request.form["admin_username"] and login.admin_password == request.form["admin_password"]:
+            login_user(login, remember=login.log_bool)
+            return redirect (url_for("about"))
+
+        else:
+            return redirect(url_for("admin_login"))
+
+    return render_template("admin/login.html", login = login)
+
+# Logout
+@app.route("/logout")
+@login_required
+def admin_logout():
+    logout_user()
+    return redirect (url_for("about"))
+
 
 # about
 
 @app.route("/admin/about",methods=["GET","POST"])
+@login_required
 def about():
     from models import About
     import os
@@ -51,6 +88,7 @@ def about():
     return render_template("admin/about.html", about=about)
 
 @app.route("/admin/about/delete/<int:id>")
+@login_required
 def admin_about_delete(id):
         from models import About
         about=About.query.filter_by(id=id).first()
@@ -60,6 +98,7 @@ def admin_about_delete(id):
 
 
 @app.route("/admin/about/edit/<int:id>",methods=["GET","POST"])
+@login_required
 def about_edit(id):
     from models import About
     from run import db
@@ -85,6 +124,7 @@ def about_edit(id):
 # testimonials
 
 @app.route("/admin/testimonials",methods=["GET","POST"])
+@login_required
 def testimonials():
     from models import Testimonials
     import os
@@ -113,6 +153,7 @@ def testimonials():
     return render_template("admin/testimonials.html", testimonials=testimonials)
 
 @app.route("/admin/testimonials/delete/<int:id>")
+@login_required
 def admin_testimonials_delete(id):
         from models import Testimonials
         testimonials=Testimonials.query.filter_by(id=id).first()
@@ -122,6 +163,7 @@ def admin_testimonials_delete(id):
 
 
 @app.route("/admin/testimonials/edit/<int:id>",methods=["GET","POST"])
+@login_required
 def testimonials_edit(id):
     from models import Testimonials
     from run import db
@@ -139,6 +181,7 @@ def testimonials_edit(id):
 # portfolio
 
 @app.route("/admin/portfolio",methods=["GET","POST"])
+@login_required
 def portfolio():
     from models import Portfolio
     import os
@@ -163,6 +206,7 @@ def portfolio():
     return render_template("admin/portfolio.html", portfolio=portfolio)
 
 @app.route("/admin/portfolio/delete/<int:id>")
+@login_required
 def admin_portfolio_delete(id):
         from models import Portfolio
         portfolio=Portfolio.query.filter_by(id=id).first()
@@ -172,6 +216,7 @@ def admin_portfolio_delete(id):
 
 
 @app.route("/admin/portfolio/edit/<int:id>",methods=["GET","POST"])
+@login_required
 def portfolio_edit(id):
     from models import Portfolio
     from run import db
