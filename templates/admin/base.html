@@ -13,7 +13,7 @@
     <!-- favicon-link -->
     <link rel="icon" href="./assets/Image/LogoImage.png">
 
-        <!-- Bootstrap CSS -->
+    <!-- bootstrap-5-css-link -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css"
@@ -24,8 +24,8 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
 
-    <!-- css-link -->
-    <link rel="stylesheet" href="/static/admin/assets/css/style.css">
+    <!-- main-css-link -->
+    <link rel="stylesheet" href="/static/admin/assets/js/admin.js">
 
     <!-- fontawesome-link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
@@ -36,6 +36,71 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <div class="logo_name">Menu</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <i class='bx bx-search'></i>
+                <input type="text" placeholder="Search">
+                <span class="tooltip">Search</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-home-alt'></i>
+                    <span class="links_name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="/admin/about">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">User</span>
+                </a>
+                <span class="tooltip">User</span>
+            </li>
+            <li>
+                <a href="/admin/testimonials">
+                    <i class='bx bx-message' ></i>
+                    <span class="links_name">Testimonials</span>
+                </a>
+                <span class="tooltip">Testimonials</span>
+            </li>
+            <li>
+                <a href="/admin/portfolio">
+                    <i class='bx bx-folder-open'></i>
+                    <span class="links_name">Portfolio</span>
+                </a>
+                <span class="tooltip">Portfolio</span>
+            </li>
+            <li>
+                <a href="/admin/contact">
+                    <i class='bx bxs-contact'></i>
+                    <span class="links_name">Contact</span>
+                </a>
+                <span class="tooltip">Contact</span>
+            </li>
+            <li>
+                <a href="/admin/contact">
+                    <i class='bx bxs-contact'></i>
+                    <span class="links_name">Contact</span>
+                </a>
+                <span class="tooltip">Contact</span>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="text">
+            <h1>TheHamidovProduct <i class="far fa-smile-wink"></i></h1>
+        </div>
+    </section>
+    <script src="/static/assets/js/main.js"></script>
+    <script src="/static/admin/assets/js/admin.js"></script>
+</body>
 
 <body>
 
@@ -62,7 +127,11 @@
         {% block content %}{% endblock %}
     </div>
 
-    <script src="./assets/js/script.js"></script>
+    <script src="/static/assets/js/main.js"></script>
+    <script src="/static/admin/assets/js/admin.js"></script>
 </body>
 
 </html>
+
+
+<i class='bx bx-message' ></i>    /admin/portfolio
