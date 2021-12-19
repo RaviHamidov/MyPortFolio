@@ -5,34 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SideBar">
+    <meta name="description" content="AdminPanel">
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="Hamidov Ravi">
-    <title>Sidebar Menu</title>
+    <title>AdminPanel</title>
 
-    <!-- favicon-link -->
-    <link rel="icon" href="./assets/Image/LogoImage.png">
-
-    <!-- bootstrap-5-css-link -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css"
-    />
+    <!-- website-favicon-link -->
+    <link rel="icon" href="/static/assets/uploads/portfolio-17.jpg">
 
     <!-- googlefont-link -->
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
 
-    <!-- main-css-link -->
-    <link rel="stylesheet" href="/static/admin/assets/js/admin.js">
+    <!-- css-link -->
+    <link rel="stylesheet" href="/static/admin/assets/css/admin.css">
 
-    <!-- fontawesome-link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- boxicons-link-->
+    <!-- boxicons-link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -45,12 +34,7 @@
         </div>
         <ul class="nav-list">
             <li>
-                <i class='bx bx-search'></i>
-                <input type="text" placeholder="Search">
-                <span class="tooltip">Search</span>
-            </li>
-            <li>
-                <a href="#">
+                <a href="/admin/home">
                     <i class='bx bx-home-alt'></i>
                     <span class="links_name">Home</span>
                 </a>
@@ -59,13 +43,13 @@
             <li>
                 <a href="/admin/about">
                     <i class='bx bx-user'></i>
-                    <span class="links_name">User</span>
+                    <span class="links_name">About</span>
                 </a>
-                <span class="tooltip">User</span>
+                <span class="tooltip">About</span>
             </li>
             <li>
                 <a href="/admin/testimonials">
-                    <i class='bx bx-message' ></i>
+                    <i class='bx bx-chat'></i>
                     <span class="links_name">Testimonials</span>
                 </a>
                 <span class="tooltip">Testimonials</span>
@@ -85,53 +69,21 @@
                 <span class="tooltip">Contact</span>
             </li>
             <li>
-                <a href="/admin/contact">
-                    <i class='bx bxs-contact'></i>
-                    <span class="links_name">Contact</span>
+                <a href="/admin/logout">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Logout</span>
                 </a>
-                <span class="tooltip">Contact</span>
+                <span class="tooltip">Logout</span>
             </li>
         </ul>
     </div>
     <section class="home-section">
-        <div class="text">
-            <h1>TheHamidovProduct <i class="far fa-smile-wink"></i></h1>
-        </div>
+
+        {% block content %}{% endblock %}
+
     </section>
     <script src="/static/assets/js/main.js"></script>
     <script src="/static/admin/assets/js/admin.js"></script>
 </body>
 
-<body>
-
-    <div class="container">
-        <div class="nav-menu">
-            <ul class="d-flex justify-content-between">
-                <li>
-                    <a href="/admin/about">about</a>
-                </li>
-                <li>
-                    <a href="/admin/testimonials">testimonials</a>
-                </li>
-                <li>
-                    <a href="/admin/portfolio">portfolio</a>
-                </li>
-                <li>
-                    <a href="/admin/contact">contact</a>
-                </li>
-                <li>
-                    <a href="/logout">Logout</a>
-                </li>
-            </ul>
-        </div>
-        {% block content %}{% endblock %}
-    </div>
-
-    <script src="/static/assets/js/main.js"></script>
-    <script src="/static/admin/assets/js/admin.js"></script>
-</body>
-
 </html>
-
-
-<i class='bx bx-message' ></i>    /admin/portfolio

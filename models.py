@@ -2,6 +2,11 @@ from flask_login.mixins import UserMixin
 from admin.routes import contact
 from run import db
 
+class Home(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    home_icon_name=db.Column(db.String(100))
+    home_icon_link=db.Column(db.String(100))
+
 class About(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     about_img=db.Column(db.String(100))
@@ -15,6 +20,30 @@ class About(db.Model):
     about_email=db.Column(db.String(100))
     about_freelance=db.Column(db.String(100))
     about_content=db.Column(db.Text())
+
+class Count(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    count_icon_name=db.Column(db.String(100))
+    count_num=db.Column(db.String(100))
+    count_title=db.Column(db.String(100))
+
+class TechnicalSkills(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    skills_date=db.Column(db.String(100))
+    skills_name=db.Column(db.String(100))
+    skills_about=db.Column(db.String(100))
+
+class Education(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    education_date=db.Column(db.String(100))
+    education_name=db.Column(db.String(100))
+    education_about=db.Column(db.String(100))
+
+class Education(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    education_date=db.Column(db.String(100))
+    education_name=db.Column(db.String(100))
+    education_about=db.Column(db.String(100))
 
 class Testimonials(db.Model):
     id=db.Column(db.Integer,primary_key=True)

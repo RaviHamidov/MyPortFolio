@@ -42,13 +42,15 @@
       <h1><a href="index.html">Hamidov Ravi</a></h1>
       <h2>I'm a passionate <span>Developer</span> from Baku</h2>
 
+      {% for hom in home %}
       <div class="social-links">
-        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="icofont-skype"></i></a>
-        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+        <a href="{{}}"><i class="{{}}"></i></a>
+        <a href="{{}}"><i class="{{}}"></i></a>
+        <a href="{{}}"><i class="{{}}"></i></a>
+        <a href="{{}}"><i class="{{}}"></i></a>
+        <a href="{{}}"><i class="{{}}"></i></a>
       </div>
+      {% endfor %}
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
@@ -199,7 +201,7 @@
 
       <div class="row">
 
-        {% for tst in testimonials %}
+        {% for int in interests %}
         <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
           <div class="icon-box">
             <i class="{{}}" style="color: #4ceb95;"></i>
