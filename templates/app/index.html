@@ -42,15 +42,11 @@
       <h1><a href="index.html">Hamidov Ravi</a></h1>
       <h2>I'm a passionate <span>Developer</span> from Baku</h2>
 
-      {% for hom in home %}
       <div class="social-links">
-        <a href="{{}}"><i class="{{}}"></i></a>
-        <a href="{{}}"><i class="{{}}"></i></a>
-        <a href="{{}}"><i class="{{}}"></i></a>
-        <a href="{{}}"><i class="{{}}"></i></a>
-        <a href="{{}}"><i class="{{}}"></i></a>
+        {% for hom in home %}
+        <a href="{{hom.home_icon_link}}"><i class="{{hom.home_icon_name}}"></i></a>
+        {% endfor %}
       </div>
-      {% endfor %}
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>

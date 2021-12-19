@@ -32,9 +32,8 @@
         {% for int in interests %}
         <tr>
             <td>{{int.id}}</td>
-            <td>{{int.interests_date}}</td>
-            <td>{{int.interests_name}}</td>
-            <td>{{int.interests_about}}</td>
+            <td>{{int.interests_icon_name}}</td>
+            <td>{{int.interests_title}}</td>
             
             <th><a href="/admin/interests/delete/{{int.id}}">Sil</a></th>
             <th><a href="/admin/interests/edit/{{int.id}}">Edit</a></th>
