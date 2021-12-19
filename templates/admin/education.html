@@ -1,0 +1,52 @@
+{% extends "admin/base.html" %}{% block content %}
+
+<h2>education</h2>
+
+<form action="/admin/education" method="POST" enctype="multipart/form-data">
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="education_date..." name="education_date">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="education_name..." name="education_name">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="education_about..." name="education_name">
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+
+<hr>
+
+<table class="table table-active">
+
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">education_date</th>
+            <th scope="col">education_name</th>
+            <th scope="col">education_about</th>
+
+            <th scope="col">delete</th>
+            <th scope="col">update</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for edc in education %}
+        <tr>
+            <td>{{edc.id}}</td>
+            <td>{{edc.education_date}}</td>
+            <td>{{edc.education_name}}</td>
+            <td>{{edc.education_about}}</td>
+            
+            <th><a href="/admin/education/delete/{{edc.id}}">Sil</a></th>
+            <th><a href="/admin/education/edit/{{edc.id}}">Edit</a></th>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

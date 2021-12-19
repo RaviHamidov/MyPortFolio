@@ -25,7 +25,7 @@ class About(db.Model):
     about_freelance=db.Column(db.String(100))
     about_content=db.Column(db.Text())
 
-# Count
+# About -> Count
 
 class Count(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -33,7 +33,7 @@ class Count(db.Model):
     count_num=db.Column(db.String(100))
     count_title=db.Column(db.String(100))
 
-# TechnicalSkills
+# About -> TechnicalSkills
 
 class TechnicalSkills(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -41,7 +41,7 @@ class TechnicalSkills(db.Model):
     skills_name=db.Column(db.String(100))
     skills_about=db.Column(db.String(100))
 
-# Education
+# About -> Education
 
 class Education(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -49,14 +49,14 @@ class Education(db.Model):
     education_name=db.Column(db.String(100))
     education_about=db.Column(db.String(100))
 
-# Interests
+# About -> Interests
 
 class Interests(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     interests_icon_name=db.Column(db.String(100))
     education_title=db.Column(db.String(100))
 
-# Testimonials
+# About -> Testimonials
 
 class Testimonials(db.Model):
     id=db.Column(db.Integer,primary_key=True)

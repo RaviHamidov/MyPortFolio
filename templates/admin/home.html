@@ -1,0 +1,47 @@
+{% extends "admin/base.html" %}{% block content %}
+
+<h2>home</h2>
+
+<form action="/admin/home" method="POST" enctype="multipart/form-data">
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="home_icon_name..." name="home_icon_name">
+    </div>
+    <div class="mt-3">
+        <input type="text" class="form-control" placeholder="home_icon_link..." name="home_icon_link">
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+
+<hr>
+
+<table class="table table-active">
+
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">home_icon_name</th>
+            <th scope="col">home_icon_link</th>
+
+            <th scope="col">delete</th>
+            <th scope="col">update</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for hom in home %}
+        <tr>
+            <td>{{hom.id}}</td>
+            <td>{{hom.home_icon_name}}</td>
+            <td>{{hom.home_icon_link}}</td>
+
+            <th><a href="/admin/home/delete/{{hom.id}}">Sil</a></th>
+            <th><a href="/admin/home/edit/{{hom.id}}">Edit</a></th>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
