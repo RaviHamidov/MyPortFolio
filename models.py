@@ -74,7 +74,6 @@ class TechnicalSkills(db.Model):
 # About -> Education
 # --------------------------------------------------------------
 
-
 class Education(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     education_date=db.Column(db.String(100))
@@ -85,7 +84,6 @@ class Education(db.Model):
 # About -> Interests
 # --------------------------------------------------------------
 
-
 class Interests(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     interests_icon_name=db.Column(db.String(100))
@@ -94,7 +92,6 @@ class Interests(db.Model):
 # --------------------------------------------------------------
 # About -> Testimonials
 # --------------------------------------------------------------
-
 
 class Testimonials(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -124,15 +121,3 @@ class Blog(db.Model):
     blog_title_link=db.Column(db.String(100))
     blog_title_name=db.Column(db.String(100))
     blog_content=db.Column(db.String(100))
-
-# --------------------------------------------------------------
-# Contact 
-# --------------------------------------------------------------
-
-
-class Contact(db.Model):
-    id=db.Column(db.Integer,primary_key=True)
-    contact_name = db.Column(db.String(50))
-    contact_email = db.Column(db.String(100))
-    contact_subject = db.Column(db.String(100))
-    contact_message = db.Column(db.Text)
