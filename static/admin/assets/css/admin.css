@@ -228,6 +228,7 @@
   position: relative;
   background: #E4E9F7;
   min-height: 100vh;
+  padding-left: 30px;
   top: 0;
   left: 78px;
   width: calc(100% - 78px);
@@ -236,7 +237,7 @@
 }
 
 .sidebar.open~.home-section {
-  left: 270px;
+  left: 250px;
   width: calc(100% - 250px);
 }
 
