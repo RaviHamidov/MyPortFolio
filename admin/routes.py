@@ -271,6 +271,60 @@ def home_edit(id):
     return render_template("/admin/update_home.html", newHome=newHome)
 
 # --------------------------------------------------------------
+# About -> TechnicalSkills
+# --------------------------------------------------------------
+
+@app.route("/admin/technicalskills",methods=["GET","POST"])
+@login_required
+def technicalskills():
+    from models import TechnicalSkills
+    import os
+    from run import db
+    from werkzeug.utils import secure_filename
+    technicalskills = TechnicalSkills.query.all()
+    if request.method=="POST":
+        skills_date = request.form["skills_date"]
+        skills_name = request.form["skills_name"]
+        skills_about = request.form["skills_about"]
+
+        tchskl = TechnicalSkills(
+            skills_date = skills_date,
+            skills_name = skills_name,
+            skills_about = skills_about
+        )
+
+        db.session.add(tchskl)
+        db.session.commit()
+        return redirect("/")
+        
+    return render_template("admin/technicalskills.html", technicalskills=technicalskills)
+
+@app.route("/admin/technicalskills/delete/<int:id>")
+@login_required
+def admin_technicalskills_delete(id):
+        from models import TechnicalSkills
+        technicalskills=TechnicalSkills.query.filter_by(id=id).first()
+        db.session.delete(technicalskills)
+        db.session.commit(technicalskills)
+        return redirect('/admin/technicalskills')
+
+
+@app.route("/admin/technicalskills/edit/<int:id>",methods=["GET","POST"])
+@login_required
+def technicalskills_edit(id):
+    from models import TechnicalSkills
+    from run import db
+    newTechnicalSkills = TechnicalSkills.query.filter_by(id=id).first()
+    if request.method=="POST":
+        technicalskills = TechnicalSkills.query.filter_by(id=id).first()
+        technicalskills.skills_date = request.form["skills_date"]
+        technicalskills.skills_name = request.form["skills_name"]
+        technicalskills.skills_about = request.form["skills_about"]
+        db.session.commit()
+        return redirect("/")
+    return render_template("/admin/update_technicalskills.html", newTechnicalSkills=newTechnicalSkills)
+
+# --------------------------------------------------------------
 # Testimonials
 # --------------------------------------------------------------
 
