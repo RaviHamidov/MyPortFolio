@@ -2,14 +2,18 @@ from flask_login.mixins import UserMixin
 from admin.routes import contact
 from run import db
 
+# --------------------------------------------------------------
 # Home
+# --------------------------------------------------------------
 
 class Home(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     home_icon_name=db.Column(db.String(100))
     home_icon_link=db.Column(db.String(100))
 
+# --------------------------------------------------------------
 # About
+# --------------------------------------------------------------
 
 class About(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -25,7 +29,9 @@ class About(db.Model):
     about_freelance=db.Column(db.String(100))
     about_content=db.Column(db.Text())
 
+# --------------------------------------------------------------
 # About -> Count
+# --------------------------------------------------------------
 
 class Count(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -33,7 +39,9 @@ class Count(db.Model):
     count_num=db.Column(db.String(100))
     count_title=db.Column(db.String(100))
 
+# --------------------------------------------------------------
 # About -> TechnicalSkills
+# --------------------------------------------------------------
 
 class TechnicalSkills(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -41,7 +49,10 @@ class TechnicalSkills(db.Model):
     skills_name=db.Column(db.String(100))
     skills_about=db.Column(db.String(100))
 
+# --------------------------------------------------------------
 # About -> Education
+# --------------------------------------------------------------
+
 
 class Education(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -49,14 +60,20 @@ class Education(db.Model):
     education_name=db.Column(db.String(100))
     education_about=db.Column(db.String(100))
 
+# --------------------------------------------------------------
 # About -> Interests
+# --------------------------------------------------------------
+
 
 class Interests(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     interests_icon_name=db.Column(db.String(100))
     interests_title=db.Column(db.String(100))
 
+# --------------------------------------------------------------
 # About -> Testimonials
+# --------------------------------------------------------------
+
 
 class Testimonials(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -65,7 +82,9 @@ class Testimonials(db.Model):
     testimonials_name=db.Column(db.String(100))
     testimonials_profession=db.Column(db.String(100))
 
+# --------------------------------------------------------------
 # PortFolio
+# --------------------------------------------------------------
 
 class Portfolio(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -74,7 +93,9 @@ class Portfolio(db.Model):
     portfolio_title=db.Column(db.String(100))
     portfolio_content=db.Column(db.String(100))
 
+# --------------------------------------------------------------
 # Blog
+# --------------------------------------------------------------
 
 class Blog(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -83,7 +104,10 @@ class Blog(db.Model):
     blog_title_name=db.Column(db.String(100))
     blog_content=db.Column(db.String(100))
 
+# --------------------------------------------------------------
 # Contact 
+# --------------------------------------------------------------
+
 
 class Contact(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -92,7 +116,9 @@ class Contact(db.Model):
     contact_subject = db.Column(db.String(100))
     contact_message = db.Column(db.Text)
 
+# --------------------------------------------------------------
 # Login
+# --------------------------------------------------------------
 
 class Login(UserMixin ,db.Model):
     id=db.Column(db.Integer,primary_key=True)

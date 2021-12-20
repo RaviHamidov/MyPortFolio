@@ -325,6 +325,114 @@ def technicalskills_edit(id):
     return render_template("/admin/update_technicalskills.html", newTechnicalSkills=newTechnicalSkills)
 
 # --------------------------------------------------------------
+# About -> Education
+# --------------------------------------------------------------
+
+@app.route("/admin/education",methods=["GET","POST"])
+@login_required
+def education():
+    from models import Education
+    import os
+    from run import db
+    from werkzeug.utils import secure_filename
+    education = Education.query.all()
+    if request.method=="POST":
+        education_date = request.form["education_date"]
+        education_name = request.form["education_name"]
+        education_about = request.form["education_about"]
+
+        edc = Education(
+            education_date = education_date,
+            education_name = education_name,
+            education_about = education_about
+        )
+
+        db.session.add(edc)
+        db.session.commit()
+        return redirect("/")
+        
+    return render_template("admin/education.html", education=education)
+
+@app.route("/admin/education/delete/<int:id>")
+@login_required
+def admin_education_delete(id):
+        from models import Education
+        education=Education.query.filter_by(id=id).first()
+        db.session.delete(education)
+        db.session.commit(education)
+        return redirect('/admin/education')
+
+
+@app.route("/admin/education/edit/<int:id>",methods=["GET","POST"])
+@login_required
+def education_edit(id):
+    from models import Education
+    from run import db
+    newEducation = Education.query.filter_by(id=id).first()
+    if request.method=="POST":
+        education = Education.query.filter_by(id=id).first()
+        education.skills_date = request.form["skills_date"]
+        education.skills_name = request.form["skills_name"]
+        education.skills_about = request.form["skills_about"]
+        db.session.commit()
+        return redirect("/")
+    return render_template("/admin/update_education.html", newEducation=newEducation)
+
+# --------------------------------------------------------------
+# About -> Interests
+# --------------------------------------------------------------
+
+@app.route("/admin/interests",methods=["GET","POST"])
+@login_required
+def interests():
+    from models import Interests
+    import os
+    from run import db
+    from werkzeug.utils import secure_filename
+    interests = Interests.query.all()
+    if request.method=="POST":
+        interests_date = request.form["interests_date"]
+        interests_name = request.form["interests_name"]
+        interests_about = request.form["interests_about"]
+
+        int = Interests(
+            interests_date = interests_date,
+            interests_name = interests_name,
+            interests_about = interests_about
+        )
+
+        db.session.add(int)
+        db.session.commit()
+        return redirect("/")
+        
+    return render_template("admin/interests.html", interests=interests)
+
+@app.route("/admin/interests/delete/<int:id>")
+@login_required
+def admin_interests_delete(id):
+        from models import Interests
+        interests=Interests.query.filter_by(id=id).first()
+        db.session.delete(interests)
+        db.session.commit(interests)
+        return redirect('/admin/interests')
+
+
+@app.route("/admin/interests/edit/<int:id>",methods=["GET","POST"])
+@login_required
+def interests_edit(id):
+    from models import Interests
+    from run import db
+    newInterests = Interests.query.filter_by(id=id).first()
+    if request.method=="POST":
+        interests = Interests.query.filter_by(id=id).first()
+        interests.interests_date = request.form["interests_date"]
+        interests.interests_name = request.form["interests_name"]
+        interests.interests_about = request.form["interests_about"]
+        db.session.commit()
+        return redirect("/")
+    return render_template("/admin/update_interests.html", newInterests=newInterests)
+
+# --------------------------------------------------------------
 # Testimonials
 # --------------------------------------------------------------
 
@@ -436,3 +544,60 @@ def portfolio_edit(id):
         db.session.commit()
         return redirect("/")
     return render_template("/admin/update_portfolio.html", newPortfolio=newPortfolio)
+
+# --------------------------------------------------------------
+# Blog
+# --------------------------------------------------------------
+
+@app.route("/admin/blog",methods=["GET","POST"])
+@login_required
+def blog():
+    from models import Blog
+    import os
+    from run import db
+    from werkzeug.utils import secure_filename
+    blog = Blog.query.all()
+    if request.method=="POST":
+        blog_icon_name = request.form["blog_icon_name"]
+        blog_title_link = request.form["blog_title_link"]
+        blog_title_name = request.form["blog_title_name"]
+        blog_content = request.form["blog_content"]
+
+        blg = Blog(
+            blog_icon_name = blog_icon_name,
+            blog_title_link = blog_title_link,
+            blog_title_name = blog_title_name,
+            blog_content = blog_content
+        )
+
+        db.session.add(blg)
+        db.session.commit()
+        return redirect("/")
+        
+    return render_template("admin/blog.html", blog=blog)
+
+@app.route("/admin/blog/delete/<int:id>")
+@login_required
+def admin_blog_delete(id):
+        from models import Blog
+        blog=Blog.query.filter_by(id=id).first()
+        db.session.delete(blog)
+        db.session.commit()
+        return redirect('/admin/blog')
+
+
+@app.route("/admin/blog/edit/<int:id>",methods=["GET","POST"])
+@login_required
+def blog_edit(id):
+    from models import Blog
+    from run import db
+    newBlog = Blog.query.filter_by(id=id).first()
+    if request.method=="POST":
+        blog = Blog.query.filter_by(id=id).first()
+        blog.blog_icon_name = request.form["blog_icon_name"]
+        blog.blog_title_link = request.form["blog_title_link"]
+        blog.blog_title_name = request.form["blog_title_name"]
+        blog.blog_content = request.form["blog_content"]
+        db.session.commit()
+        return redirect("/")
+    return render_template("/admin/update_blog.html", newBlog=newBlog)
