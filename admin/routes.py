@@ -223,52 +223,52 @@ def about_edit(id):
 # About -> Count
 # --------------------------------------------------------------
 
-@app.route("/admin/home",methods=["GET","POST"])
+@app.route("/admin/count",methods=["GET","POST"])
 @login_required
-def home():
-    from models import Home
+def count():
+    from models import Count
     import os
     from run import db
     from werkzeug.utils import secure_filename
-    home = Home.query.all()
+    count = Count.query.all()
     if request.method=="POST":
-        home_icon_name = request.form["home_icon_name"]
-        home_icon_link = request.form["home_icon_link"]
+        count_icon_name = request.form["count_icon_name"]
+        count_num = request.form["count_num"]
 
-        hom = Home(
-            home_icon_name = home_icon_name,
-            home_icon_link = home_icon_link
+        cnt = Count(
+            count_icon_name = count_icon_name,
+            count_num = count_num
         )
 
-        db.session.add(hom)
+        db.session.add(cnt)
         db.session.commit()
         return redirect("/")
         
-    return render_template("admin/home.html", home=home)
+    return render_template("admin/count.html", count=count)
 
-@app.route("/admin/home/delete/<int:id>")
+@app.route("/admin/count/delete/<int:id>")
 @login_required
-def admin_home_delete(id):
-        from models import Home
-        portfolio=Home.query.filter_by(id=id).first()
-        db.session.delete(home)
+def admin_count_delete(id):
+        from models import Count
+        portfolio=Count.query.filter_by(id=id).first()
+        db.session.delete(count)
         db.session.commit()
-        return redirect('/admin/home')
+        return redirect('/admin/count')
 
 
-@app.route("/admin/home/edit/<int:id>",methods=["GET","POST"])
+@app.route("/admin/count/edit/<int:id>",methods=["GET","POST"])
 @login_required
-def home_edit(id):
-    from models import Home
+def count_edit(id):
+    from models import Count
     from run import db
-    newHome = Home.query.filter_by(id=id).first()
+    newCount = Count.query.filter_by(id=id).first()
     if request.method=="POST":
-        home = Home.query.filter_by(id=id).first()
-        home.home_icon_name = request.form["home_icon_name"]
-        home.home_icon_link = request.form["home_icon_link"]
+        count = Count.query.filter_by(id=id).first()
+        count.count_icon_name = request.form["count_icon_name"]
+        count.count_num = request.form["count_num"]
         db.session.commit()
         return redirect("/")
-    return render_template("/admin/update_home.html", newHome=newHome)
+    return render_template("/admin/update_count.html", newCount=newCount)
 
 # --------------------------------------------------------------
 # About -> TechnicalSkills

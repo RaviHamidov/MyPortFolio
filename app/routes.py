@@ -1,5 +1,4 @@
 from flask.templating import render_template
-from admin.routes import home
 from run import app
 
 @app.route('/')
