@@ -6,7 +6,10 @@ from run import login_manager
 from flask import render_template,request,url_for
 import os
 
+# --------------------------------------------------------------
 # Login
+# --------------------------------------------------------------
+
 @login_manager.user_loader
 def load_user(user_id):
     from models import Login
@@ -34,14 +37,19 @@ def admin_login():
 
     return render_template("admin/login.html", login = login)
 
-# Logout
+# --------------------------------------------------------------
+# Logout 
+# --------------------------------------------------------------
+
 @app.route("/logout")
 @login_required
 def admin_logout():
     logout_user()
     return redirect (url_for("about"))
 
-# Admin Contact
+# --------------------------------------------------------------
+# Contact
+# --------------------------------------------------------------
 
 @app.route("/admin/contact", methods=["GET","POST"])
 @login_required
@@ -83,8 +91,60 @@ def admin_contact_delete(id):
         db.session.commit()
         return redirect('/admin/contact')
 
+# --------------------------------------------------------------
+# Home
+# --------------------------------------------------------------
 
-# about
+@app.route("/admin/home",methods=["GET","POST"])
+@login_required
+def home():
+    from models import Home
+    import os
+    from run import db
+    from werkzeug.utils import secure_filename
+    home = Home.query.all()
+    if request.method=="POST":
+        home_icon_name = request.form["home_icon_name"]
+        home_icon_link = request.form["home_icon_link"]
+
+        hom = Home(
+            home_icon_name = home_icon_name,
+            home_icon_link = home_icon_link
+        )
+
+        db.session.add(hom)
+        db.session.commit()
+        return redirect("/")
+        
+    return render_template("admin/home.html", home=home)
+
+@app.route("/admin/home/delete/<int:id>")
+@login_required
+def admin_home_delete(id):
+        from models import Home
+        portfolio=Home.query.filter_by(id=id).first()
+        db.session.delete(home)
+        db.session.commit()
+        return redirect('/admin/home')
+
+
+@app.route("/admin/home/edit/<int:id>",methods=["GET","POST"])
+@login_required
+def home_edit(id):
+    from models import Home
+    from run import db
+    newHome = Home.query.filter_by(id=id).first()
+    if request.method=="POST":
+        home = Home.query.filter_by(id=id).first()
+        home.home_icon_name = request.form["home_icon_name"]
+        home.home_icon_link = request.form["home_icon_link"]
+        db.session.commit()
+        return redirect("/")
+    return render_template("/admin/update_home.html", newHome=newHome)
+
+# --------------------------------------------------------------
+# About
+# --------------------------------------------------------------
 
 @app.route("/admin/about",methods=["GET","POST"])
 @login_required
@@ -159,11 +219,9 @@ def about_edit(id):
         return redirect("/")
     return render_template("/admin/update_about.html", newAbout=newAbout)
 
-
-
-
-
-# testimonials
+# --------------------------------------------------------------
+# Testimonials
+# --------------------------------------------------------------
 
 @app.route("/admin/testimonials",methods=["GET","POST"])
 @login_required
@@ -220,7 +278,9 @@ def testimonials_edit(id):
     return render_template("/admin/update_testimonials.html", newTestimonials=newTestimonials)
 
 
-# portfolio
+# --------------------------------------------------------------
+# Portfolio
+# --------------------------------------------------------------
 
 @app.route("/admin/portfolio",methods=["GET","POST"])
 @login_required
