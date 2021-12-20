@@ -33,7 +33,7 @@ def admin_login():
             return redirect (url_for("about"))
 
         else:
-            return redirect(url_for("admin_login"))
+            return redirect(url_for("about"))
 
     return render_template("admin/login.html", login = login)
 
@@ -45,7 +45,7 @@ def admin_login():
 @login_required
 def admin_logout():
     logout_user()
-    return redirect (url_for("about"))
+    return redirect('/')
 
 # --------------------------------------------------------------
 # Contact
@@ -72,9 +72,11 @@ def contact():
             contact_message = contact_message
         )
         msg = cnt.contact_message  
-        mygmail = "kharmacodingclub@gmail.com"
+        # mygmail = "kharmacodingclub@gmail.com"
 
-        msg = Message(contact_message, sender = contact_email, recipients = [mygmail])
+        # msg = Message(contact_message, sender = contact_email, recipients = [mygmail])
+        msg=Message(contact_subject, body=contact_message + " " + contact_email + " " + "tərəfindən göndərilmişdir" , sender=contact_email, recipients = ["kharmacodingclub@gmail.com"])
+
         mail.send(msg)
 
         db.session.add(cnt)
