@@ -1,8 +1,12 @@
 from flask.templating import render_template
+from admin.routes import home
 from run import app
 
 @app.route('/')
 def index():
+
+    from models import Home
+    home = Home.query.all()
 
     from models import About
     about = About.query.all()
