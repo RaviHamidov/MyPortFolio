@@ -81,7 +81,7 @@ def contact():
 
         db.session.add(cnt)
         db.session.commit()
-        return redirect ("/")
+        return redirect ("/admin/contact")
     return render_template("admin/contact.html", messages=messages)
 
 @app.route("/admin/contact/delete/<int:id>")
@@ -116,7 +116,7 @@ def home():
 
         db.session.add(hom)
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/home")
         
     return render_template("admin/home.html", home=home)
 
@@ -187,7 +187,7 @@ def about():
 
         db.session.add(abt)
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/about")
         
     return render_template("admin/about.html", about=about)
 
@@ -244,7 +244,7 @@ def count():
 
         db.session.add(cnt)
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/count")
         
     return render_template("admin/count.html", count=count)
 
@@ -297,7 +297,7 @@ def technicalskills():
 
         db.session.add(tchskl)
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/technicalskills")
         
     return render_template("admin/technicalskills.html", technicalskills=technicalskills)
 
@@ -351,7 +351,7 @@ def education():
 
         db.session.add(edc)
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/education")
         
     return render_template("admin/education.html", education=education)
 
@@ -405,7 +405,7 @@ def interests():
 
         db.session.add(int)
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/interests")
         
     return render_template("admin/interests.html", interests=interests)
 
@@ -463,7 +463,7 @@ def testimonials():
 
         db.session.add(tst)
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/testimonials")
         
     return render_template("admin/testimonials.html", testimonials=testimonials)
 
@@ -518,7 +518,7 @@ def portfolio():
 
         db.session.add(prt)
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/portfolio")
         
     return render_template("admin/portfolio.html", portfolio=portfolio)
 
@@ -574,7 +574,7 @@ def blog():
 
         db.session.add(blg)
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/blog")
         
     return render_template("admin/blog.html", blog=blog)
 
