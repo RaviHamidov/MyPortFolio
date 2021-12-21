@@ -509,31 +509,31 @@ section .container {
   .timeline ul li:nth-child(odd) {
     float: left;
     clear: right;
-    transform: translateX(-30px);
+    transform: translateX(-35px);
     border-radius: 20px 0px 20px 20px;
-  }
+}
   .timeline ul li:nth-child(even) {
     float: right;
     clear: left;
-    transform: translateX(30px);
+    transform: translateX(-5px);
     border-radius: 0px 20px 20px 20px;
-  }
+}
   .timeline ul li::before {
     content: "";
     position: absolute;
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background-color: rgb(25, 31, 34);
+    background-color: #1e1f22;
     top: 0px;
   }
   .timeline ul li:nth-child(odd)::before {
     transform: translate(50%, -50%);
-    right: -10px;
+    right: -15px;
   }
   .timeline ul li:nth-child(even)::before {
     transform: translate(-50%, -50%);
-    left: -50px;
+    left: -15px;
   }
   .timeline-content .date {
     position: absolute;
@@ -815,7 +815,6 @@ section .container {
   color: #fff;
 }
  
-
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/

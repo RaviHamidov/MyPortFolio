@@ -1,7 +1,6 @@
 {% extends "admin/base.html" %} {% block content %}
 <div class="container my-5">
     <div class="row">
-        <!-- column -->
         <div class="col-12">
             <h2>Messages</h2>
             <hr>
@@ -19,7 +18,6 @@
                                     <th>Subject</th>
                                     <th>Message</th>
                                     <th>Delete</th>
-                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -30,11 +28,9 @@
                                     <td>{{msg.contact_email}}</td>
                                     <td>{{msg.contact_subject}}</td>
                                     <td>{{msg.contact_message}}</td>
-
                                     <th><a href="/admin/contact/delete/{{msg.id}}">Sil</a></th>
                                 </tr>
                                 {% endfor %}
-
                             </tbody>
                         </table>
                     </div>

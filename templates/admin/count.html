@@ -14,9 +14,7 @@
     </div>
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
 </form>
-
 <hr>
-
 <table class="table table-active">
 
     <thead>
@@ -25,26 +23,22 @@
             <th scope="col">count_icon_name</th>
             <th scope="col">count_num</th>
             <th scope="col">count_title</th>
-
             <th scope="col">delete</th>
             <th scope="col">update</th>
         </tr>
     </thead>
 
     <tbody>
-
         {% for cnt in count %}
         <tr>
             <td>{{cnt.id}}</td>
             <td>{{cnt.count_icon_name}}</td>
             <td>{{cnt.count_num}}</td>
             <td>{{cnt.count_title}}</td>
-            
             <th><a href="/admin/count/delete/{{cnt.id}}">Sil</a></th>
             <th><a href="/admin/count/edit/{{cnt.id}}">Edit</a></th>
         </tr>
         {% endfor %}
-
     </tbody>
 
 </table>
