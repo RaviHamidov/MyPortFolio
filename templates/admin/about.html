@@ -19,7 +19,7 @@
         <input type="text" class="form-control" placeholder="Phone..." name="about_phone">
     </div>
     <div class="mt-3">
-        <input type="text" class="form-control" placeholder="About..." name="about_city">
+        <input type="text" class="form-control" placeholder="City..." name="about_city">
     </div>
     <div class="mt-3">
         <input type="text" class="form-control" placeholder="Age..." name="about_age">
@@ -76,6 +76,7 @@
             <td>{{abt.about_email}}</td>
             <td>{{abt.about_freelance}}</td>
             <td>{{abt.about_content}}</td>
+            
             <th><a href="/admin/about/delete/{{abt.id}}">Sil</a></th>
             <th><a href="/admin/about/edit/{{abt.id}}">Edit</a></th>
         </tr>
