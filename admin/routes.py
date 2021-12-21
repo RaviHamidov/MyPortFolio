@@ -20,8 +20,8 @@ def admin_login():
     from models import Login
     from run import db
     login = Login(
-        admin_username = "admin",
-        admin_password = "admin",
+        admin_username = "thehamidov",
+        admin_password = "qizilmezun",
         log_bool = False
     )
     db.session.add(login)
