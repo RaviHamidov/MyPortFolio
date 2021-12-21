@@ -25,7 +25,7 @@ def index():
     # About -> TechnicalSkills
     # --------------------------------------------------------------
     from models import TechnicalSkills
-    skills = TechnicalSkills.query.all()
+    technicalskills = TechnicalSkills.query.all()
 
     # --------------------------------------------------------------
     # About -> Education
@@ -57,4 +57,4 @@ def index():
     from models import Blog
     blog = Blog.query.all()
     
-    return render_template('app/index.html',about=about,testimonials=testimonials,portfolio=portfolio,home=home,count=count,skills=skills,education=education,interests=interests,blog=blog)
+    return render_template('app/index.html',about=about,testimonials=testimonials,portfolio=portfolio,home=home,count=count,technicalskills=technicalskills,education=education,interests=interests,blog=blog)
