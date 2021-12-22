@@ -393,14 +393,12 @@ def interests():
     from werkzeug.utils import secure_filename
     interests = Interests.query.all()
     if request.method=="POST":
-        interests_date = request.form["interests_date"]
-        interests_name = request.form["interests_name"]
-        interests_about = request.form["interests_about"]
+        interests_icon_name = request.form["interests_icon_name"]
+        interests_title = request.form["interests_title"]
 
         int = Interests(
-            interests_date = interests_date,
-            interests_name = interests_name,
-            interests_about = interests_about
+            interests_icon_name = interests_icon_name,
+            interests_title = interests_title
         )
 
         db.session.add(int)
@@ -427,9 +425,8 @@ def interests_edit(id):
     newInterests = Interests.query.filter_by(id=id).first()
     if request.method=="POST":
         interests = Interests.query.filter_by(id=id).first()
-        interests.interests_date = request.form["interests_date"]
-        interests.interests_name = request.form["interests_name"]
-        interests.interests_about = request.form["interests_about"]
+        interests.interests_icon_name = request.form["interests_icon_name"]
+        interests.interests_title = request.form["interests_title"]
         db.session.commit()
         return redirect("/")
     return render_template("/admin/update_interests.html", newInterests=newInterests)
