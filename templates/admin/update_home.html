@@ -1,15 +1,12 @@
 {% extends "admin/base.html" %}{% block content %}
-
 <h2>update_home</h2>
-
 <form action="/admin/home/edit/{{newhome.id}}" method="POST" enctype="multipart/form-data">
     <div class="mt-3">
-        <input type="text" class="form-control" placeholder="home_icon_name..." name="home_icon_name" value="{{newhom.home_icon_name}}" required >
+        <input type="text" class="form-control" placeholder="home_icon_name..." name="home_icon_name" value="{{newhome.home_icon_name}}" required >
     </div>
     <div class="mt-3">
-        <input type="text" class="form-control" placeholder="home_icon_link..." name="home_icon_link" value="{{newhom.home_icon_link}}" required >
+        <input type="text" class="form-control" placeholder="home_icon_link..." name="home_icon_link" value="{{newhome.home_icon_link}}" required >
     </div>
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
 </form>
-
 {% endblock %}
