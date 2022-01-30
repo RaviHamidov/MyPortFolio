@@ -2,15 +2,15 @@
 
 <h2>update_education</h2>
 
-<form action="/admin/education/edit/{{neweducation.id}}" method="POST" enctype="multipart/form-data">
+<form action="/admin/education/edit/{{newEducation.id}}" method="POST" enctype="multipart/form-data">
     <div class="mt-3">
-        <input type="text" class="form-control" placeholder="education_date..." name="education_date" value="{{newedc.education_date}}" required >
+        <input type="text" class="form-control" placeholder="education_date..." name="education_date" value="{{newEducation.education_date}}" required >
     </div>
     <div class="mt-3">
-        <input type="text" class="form-control" placeholder="education_name..." name="education_name" value="{{newedc.education_name}}" required >
+        <input type="text" class="form-control" placeholder="education_name..." name="education_name" value="{{newEducation.education_name}}" required >
     </div>
     <div class="mt-3">
-        <input type="text" class="form-control" placeholder="education_about..." name="education_about" value="{{newedc.education_about}}" required >
+        <input type="text" class="form-control" placeholder="education_about..." name="education_about" value="{{newEducation.education_about}}" required >
     </div>
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
 </form>

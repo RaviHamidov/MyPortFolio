@@ -125,7 +125,7 @@ def home():
 def admin_home_delete(id):
         from models import Home
         portfolio=Home.query.filter_by(id=id).first()
-        db.session.delete(home)
+        db.session.delete(portfolio)
         db.session.commit()
         return redirect('/admin/home')
 
@@ -141,7 +141,7 @@ def home_edit(id):
         home.home_icon_name = request.form["home_icon_name"]
         home.home_icon_link = request.form["home_icon_link"]
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/home")
     return render_template("/admin/update_home.html", newHome=newHome)
 
 # --------------------------------------------------------------
@@ -218,7 +218,7 @@ def about_edit(id):
         about.about_degree = request.form["about_degree"]
         about.about_email = request.form["about_email"]
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/about")
     return render_template("/admin/update_about.html", newAbout=newAbout)
 
 # --------------------------------------------------------------
@@ -253,7 +253,7 @@ def count():
 def admin_count_delete(id):
         from models import Count
         portfolio=Count.query.filter_by(id=id).first()
-        db.session.delete(count)
+        db.session.delete(portfolio)
         db.session.commit()
         return redirect('/admin/count')
 
@@ -269,7 +269,7 @@ def count_edit(id):
         count.count_icon_name = request.form["count_icon_name"]
         count.count_num = request.form["count_num"]
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/count")
     return render_template("/admin/update_count.html", newCount=newCount)
 
 # --------------------------------------------------------------
@@ -307,7 +307,7 @@ def admin_technicalskills_delete(id):
         from models import TechnicalSkills
         technicalskills=TechnicalSkills.query.filter_by(id=id).first()
         db.session.delete(technicalskills)
-        db.session.commit(technicalskills)
+        db.session.commit()
         return redirect('/admin/technicalskills')
 
 
@@ -323,7 +323,7 @@ def technicalskills_edit(id):
         technicalskills.skills_name = request.form["skills_name"]
         technicalskills.skills_about = request.form["skills_about"]
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/technicalskills")
     return render_template("/admin/update_technicalskills.html", newTechnicalSkills=newTechnicalSkills)
 
 # --------------------------------------------------------------
@@ -361,7 +361,7 @@ def admin_education_delete(id):
         from models import Education
         education=Education.query.filter_by(id=id).first()
         db.session.delete(education)
-        db.session.commit(education)
+        db.session.commit()
         return redirect('/admin/education')
 
 
@@ -373,11 +373,11 @@ def education_edit(id):
     newEducation = Education.query.filter_by(id=id).first()
     if request.method=="POST":
         education = Education.query.filter_by(id=id).first()
-        education.skills_date = request.form["skills_date"]
-        education.skills_name = request.form["skills_name"]
-        education.skills_about = request.form["skills_about"]
+        education.education_date = request.form["education_date"]
+        education.education_name = request.form["education_name"]
+        education.education_about = request.form["education_about"]
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/education")
     return render_template("/admin/update_education.html", newEducation=newEducation)
 
 # --------------------------------------------------------------
@@ -413,7 +413,7 @@ def admin_interests_delete(id):
         from models import Interests
         interests=Interests.query.filter_by(id=id).first()
         db.session.delete(interests)
-        db.session.commit(interests)
+        db.session.commit()
         return redirect('/admin/interests')
 
 
@@ -428,7 +428,7 @@ def interests_edit(id):
         interests.interests_icon_name = request.form["interests_icon_name"]
         interests.interests_title = request.form["interests_title"]
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/interests")
     return render_template("/admin/update_interests.html", newInterests=newInterests)
 
 # --------------------------------------------------------------
@@ -486,7 +486,7 @@ def testimonials_edit(id):
         testimonials.testimonials_name = request.form["testimonials_name"]
         testimonials.testimonials_profession = request.form["testimonials_profession"]
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/testimonials")
     return render_template("/admin/update_testimonials.html", newTestimonials=newTestimonials)
 
 
@@ -541,7 +541,7 @@ def portfolio_edit(id):
         portfolio.portfolio_title = request.form["portfolio_title"]
         portfolio.portfolio_content = request.form["portfolio_content"]
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/portfolio")
     return render_template("/admin/update_portfolio.html", newPortfolio=newPortfolio)
 
 # --------------------------------------------------------------
@@ -598,5 +598,5 @@ def blog_edit(id):
         blog.blog_title_name = request.form["blog_title_name"]
         blog.blog_content = request.form["blog_content"]
         db.session.commit()
-        return redirect("/")
+        return redirect("/admin/blog")
     return render_template("/admin/update_blog.html", newBlog=newBlog)
