@@ -236,10 +236,12 @@ def count():
     if request.method=="POST":
         count_icon_name = request.form["count_icon_name"]
         count_num = request.form["count_num"]
+        count_title = request.form["count_title"]
 
         cnt = Count(
             count_icon_name = count_icon_name,
-            count_num = count_num
+            count_num = count_num,
+            count_title = count_title
         )
 
         db.session.add(cnt)
@@ -268,6 +270,7 @@ def count_edit(id):
         count = Count.query.filter_by(id=id).first()
         count.count_icon_name = request.form["count_icon_name"]
         count.count_num = request.form["count_num"]
+        count.count_title = request.form["count_title"]
         db.session.commit()
         return redirect("/admin/count")
     return render_template("/admin/update_count.html", newCount=newCount)
